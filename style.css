@@ -1,0 +1,130 @@
+/* style.css */
+*{
+	margin: 0;
+	padding: 0;
+}
+
+body, p, form, ul, ol, input, button{
+	font-size: 14pt;
+	font-family: '游ゴシック', Futura, Helvetica, 'メイリオ', Osaka;
+	color: #546e7a;
+}
+
+/* ヘッダー部分 */
+header{
+	font-family:  Monaco, 'Courier New';
+	padding: 1em;
+	background-color: forestgreen;
+	color: #fffafa;
+}
+
+/* コンテンツ部分 */
+#contents{
+	display: flex;		/* 内包するボックスにフレキシブル要素を適用する */
+}
+
+/* メイン（左側要素） */
+#main{
+	flex: 1;			/* 伸び縮みする要素 */
+	padding: 1em;
+	background-color: white;
+}
+
+#main h2{
+	font-size: 16pt;
+	font-weight: 900;
+}
+
+#main .waku{
+	margin-bottom: 1em;
+	border: 1px solid #fff;
+	padding: 10px;
+	box-shadow: #aaa 3pt 3pt 7pt;
+}
+
+#main .waku .caption{
+	background-color: #fffafa;
+	padding : 0.5em 1em;
+	border-radius: 5px;
+	margin-top: 1em;
+	font-size: 12pt;
+}
+
+#main img{
+	width: 100%;
+	height: auto;
+}
+
+/* GoogleマップやYouTube動画の埋め込みタグ（iframeタグ）をフィットさせる */
+	/* 参考： https://whitewood-hp.com/web-tips/archives/3634 */
+#main .umekomi{
+	position : relative;
+	height : 0;
+	padding-bottom : 56.25%; /* 縦横比の指定 */
+	overflow : hidden;
+}
+ 
+#main .umekomi iframe{
+	position : absolute;
+	top : 0;
+	left : 0;
+	width : 100%;
+	height : 100%;
+}
+/* /GoogleマップやYouTube動画の埋め込みタグ（iframeタグ）をフィットさせる */
+
+/* サイドバー（右側要素） */
+#sidebar{
+	flex-basis: 300px;	/* 固定幅の要素 */
+	padding: 1em;
+	background-color: #fff;
+}
+
+#sidebar .icon{
+	text-align: center;
+}
+
+#sidebar .icon img{
+	border-radius: 128px;
+}
+
+#sidebar .author{
+	text-align: center;
+	font-size: 10pt;
+}
+
+/* フッター部分 */
+footer{
+	padding: 1em;
+	background-color: forestgreen;
+	text-align: center;
+}
+
+footer p{
+	color: #fff;
+}
+
+footer a{
+	text-decoration: none;
+	color: #fff;
+}
+
+/* 幅が狭くなったら、縦に並べる */
+@media screen and (max-width: 800px){
+	h1{
+		text-align: center;
+	}
+	#contents{
+		flex-direction: column;	/* 縦に */
+	}
+	#main{
+		flex-basis: 100%;	/* 幅を再設定 */
+	}
+	#sidebar{
+		flex-basis: 100%;	/* 幅を再設定 */
+	}
+	#sidebar p{
+		text-align: center;
+		font-size: 12pt;
+	}
+}
